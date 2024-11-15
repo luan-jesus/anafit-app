@@ -4,20 +4,28 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100dvh;
+  background-color: #eef1f3;
 `;
 
 export const Header = styled.div`
-  background-color: #ffffff;
+  background-color: #FFF;
   width: 100%;
-  height: 50px;
-  box-shadow: #e7e7e7 0px 5px 9px 0px;;
+  height: 70px;
+  box-shadow: #e4e4e4 0px 3px 7px 0px;
   display: flex;
   align-items: center;
 `;
 
+export const LogoImg = styled.img`
+  height: 60px;
+  padding-left: 10px;
+`
+
 export const PageTitle = styled.h3`
   flex: 1;
   margin: 0 10px;
+  color: #F77800;
+  text-align: center;
 `
 
 export const UserButton = styled.button`
@@ -27,13 +35,16 @@ export const UserButton = styled.button`
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  margin-left: 20px;
+
+  color: #fff;
+  border: 1px solid #F77800;
 
   padding-top: 3px;
-  border: none;
   background-color: #fff;
 
   &:hover {
-    background-color: antiquewhite;
+    background-color: #e9e9e9;
   }
 `
 
@@ -43,25 +54,30 @@ export const PageContent = styled.div`
 `
 
 export const Navbar = styled.nav`
-  background-color: grey;
   width: 100%;
   height: 70px;
-  box-shadow: #e7e7e7 0px -5px 9px 0px;;
+  box-shadow: #cecece 0px -5px 10px 0px;;
 
   display: flex;
-
 `
 
 export const NavItem = styled.div`
-  background-color: beige;
+  background-color: #FA9F56;
   flex: 1;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  color: #fff;
+  font-weight: 500;
+
   &:hover {
-    background-color: antiquewhite;
+    background-color: #F77800;
+  }
+
+  &:active {
+    background-color: #F77800;
   }
 `
 export const NavItemLabel = styled.span`

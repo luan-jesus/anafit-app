@@ -2,6 +2,8 @@ import React from 'react'
 
 import { CiUser, CiCircleList, CiDumbbell, CiGrid41 } from "react-icons/ci";
 
+import Logo from "../../assets/logo-com-nome.png";
+
 import {
   Container,
   Header,
@@ -11,34 +13,36 @@ import {
   NavItemLabel,
   NavItemIcon,
   PageTitle,
-  UserButton
+  UserButton,
+  LogoImg
 } from './styles'
 
 const App: React.FC = () => (
   <Container>
     <Header>
+      <LogoImg src={Logo} />
       <PageTitle>Inicio</PageTitle>
       <UserButton>
-        <CiUser color="#000000" />
+        <CiUser color='#F77800' />
       </UserButton>
     </Header>
     <PageContent>Conteúdo</PageContent>
     <Navbar>
       <NavItem>
         <NavItemIcon>
-          <CiGrid41 color="#000000" />
+          <CiGrid41 />
         </NavItemIcon>
         <NavItemLabel>Inicio</NavItemLabel>
       </NavItem>
       <NavItem>
         <NavItemIcon>
-          <CiDumbbell color="#000000" />
+          <CiDumbbell />
         </NavItemIcon>
         <NavItemLabel>Treinos</NavItemLabel>
       </NavItem>
       <NavItem>
         <NavItemIcon>
-          <CiCircleList color='#000000' />
+          <CiCircleList />
         </NavItemIcon>
         <NavItemLabel>Exercícios</NavItemLabel>
       </NavItem>
