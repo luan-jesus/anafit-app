@@ -1,14 +1,5 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-  background-color: #eef1f3;
-  position: relative;
-  align-items: center;
-`
-
 export const BackgroundBall = styled.div`
   width: 500px;
   height: 400px;
