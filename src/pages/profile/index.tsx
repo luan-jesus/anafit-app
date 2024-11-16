@@ -1,27 +1,38 @@
 import React from 'react'
 
 import { FaUser } from 'react-icons/fa'
-import { BiLogOutCircle } from "react-icons/bi";
 
-import { Container, BackgroundBall, ProfilePic, UserTitle, About, Button } from './styles'
+import { Container, BackgroundBall, ProfilePic, UserTitle, About, Button, H3 } from './styles'
 
-const Profile: React.FC = () => (
-  <Container>
-    <BackgroundBall />
-    <ProfilePic>
-      <FaUser color='#F88700' size={64} />
-    </ProfilePic>
+const Profile: React.FC = () => {
+  const loggedIn = true;
 
-    <UserTitle>Luan de Jesus Teixeira</UserTitle>
-    <Button>
-      <BiLogOutCircle size={20} />
-      Desconectar
-    </Button>
+  return (
+    <Container>
+      <BackgroundBall />
+      <ProfilePic>
+        <FaUser color='#F88700' size={64} />
+      </ProfilePic>
 
-    <About>
-      Lorem Ipsum has been the standard dummy text ever since the 1500s.
-    </About>
-  </Container>
-)
+      {loggedIn ? (
+        <>
+          <UserTitle>Luan de Jesus Teixeira</UserTitle>
+          <Button>Desconectar</Button>
+        </>
+      ) : (
+        <>
+          <UserTitle>Acesse sua conta</UserTitle>
+          <Button>Entrar</Button>
+          <H3>ou</H3>
+          <Button>Registrar-se</Button>
+        </>
+      )}
+
+      <About>
+        Lorem Ipsum has been the standard dummy text ever since the 1500s.
+      </About>
+    </Container>
+  )
+}
 
 export default Profile

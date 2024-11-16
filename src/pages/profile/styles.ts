@@ -34,6 +34,7 @@ export const ProfilePic = styled.div`
 export const UserTitle = styled.h1`
   font-size: 24px;
   margin: 25px 0;
+  text-align: center;
   color: #494f53;
 `
 
@@ -55,6 +56,8 @@ export const Button = styled.button`
   gap: 3px;
   border: none;
   padding: 15px 50px;
+  width: 250px;
+  justify-content: center;
   border-radius: 50px;
   color: #fff;
   font-weight: 700;
@@ -64,4 +67,9 @@ export const Button = styled.button`
     cursor: pointer;
     background-color: #FA9F56;
   }
+`
+
+export const H3 = styled.h3`
+  margin: 10px 0;
+  color: #494f53;
 `
