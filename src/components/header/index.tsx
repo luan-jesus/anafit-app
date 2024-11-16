@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { CiUser } from "react-icons/ci";
+import { FaUser } from "react-icons/fa";
 
 import Logo from "../../assets/logo-com-nome.png";
 
@@ -15,8 +14,8 @@ const Header: React.FC = () => (
   <Wrapper>
     <LogoImg src={Logo} />
     <PageTitle>Inicio</PageTitle>
-    <UserButton>
-      <CiUser color='#F77800' />
+    <UserButton to={'profile'}>
+      <FaUser color='#fff' />
     </UserButton>
   </Wrapper>
 )

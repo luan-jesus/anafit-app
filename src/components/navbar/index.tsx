@@ -2,28 +2,28 @@ import React from 'react'
 
 import { CiCircleList, CiDumbbell, CiGrid41 } from "react-icons/ci";
 
-import { NavItem, NavItemIcon, NavItemLabel, Wrapper,  } from './styles'
+import { NavItemLink, NavItemIcon, NavItemLabel, Wrapper,  } from './styles'
 
 const Navbar: React.FC = () => (
   <Wrapper>
-    <NavItem>
+    <NavItemLink to={'/'}>
       <NavItemIcon>
         <CiGrid41 />
       </NavItemIcon>
       <NavItemLabel>Inicio</NavItemLabel>
-    </NavItem>
-    <NavItem>
+    </NavItemLink>
+    <NavItemLink to={'workouts'}>
       <NavItemIcon>
         <CiDumbbell />
       </NavItemIcon>
       <NavItemLabel>Treinos</NavItemLabel>
-    </NavItem>
-    <NavItem>
+    </NavItemLink>
+    <NavItemLink to={'exercises'}>
       <NavItemIcon>
         <CiCircleList />
       </NavItemIcon>
       <NavItemLabel>Exercícios</NavItemLabel>
-    </NavItem>
+    </NavItemLink>
   </Wrapper>
 )
 

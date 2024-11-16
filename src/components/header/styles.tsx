@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   background-color: #FFF;
@@ -21,20 +22,17 @@ export const PageTitle = styled.h3`
   text-align: center;
 `
 
-export const UserButton = styled.button`
-  font-size: 24px;
+export const UserButton = styled(Link)`
+  font-size: 20px;
   border-radius: 50%;
-  padding: 0;
-  width: 40px;
-  height: 40px;
+  padding: 10px 13px 10px 13px;
   margin-right: 10px;
   margin-left: 20px;
 
   color: #fff;
-  border: 1px solid #F77800;
+  border: none;
 
-  padding-top: 3px;
-  background-color: #fff;
+  background-color: #F77800;
 
   &:hover {
     background-color: #e9e9e9;

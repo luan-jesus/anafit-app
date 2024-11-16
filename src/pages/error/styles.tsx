@@ -5,12 +5,5 @@ export const Container = styled.div`
   flex-direction: column;
   height: 100dvh;
   background-color: #eef1f3;
-`;
-
-export const PageContent = styled.div`
-  flex: 1;
-  padding: 10px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-`
+`;
