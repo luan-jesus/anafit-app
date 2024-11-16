@@ -8,6 +8,8 @@ import App from './pages/app'
 import Error from './pages/error'
 import Profile from './pages/profile'
 import { AuthProvider } from './context/auth-context'
+import Welcome from './pages/profile/welcome'
+import Login from './pages/profile/login'
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />
+    element: <Profile />,
+    children: [
+      {
+        path: "/profile",
+        element: <Welcome />
+      },
+      {
+        path: "/profile/login",
+        element: <Login />
+      },
+      {
+        path: "/profile/register",
+        element: <div>Register</div>
+      },
+    ]
   }
 ]);
 

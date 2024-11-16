@@ -22,13 +22,6 @@ export const ProfilePic = styled.div`
   z-index: 10000;
 `
 
-export const UserTitle = styled.h1`
-  font-size: 24px;
-  margin: 25px 0;
-  text-align: center;
-  color: #494f53;
-`
-
 export const About = styled.p`
   display: flex;
   margin: 10px 10px 20px;
@@ -38,29 +31,4 @@ export const About = styled.p`
   color: #494f53;
   text-align: center;
   max-width: 300px;
-`
-
-export const Button = styled.button`
-  background-color: #F88700;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  border: none;
-  padding: 15px 50px;
-  width: 250px;
-  justify-content: center;
-  border-radius: 50px;
-  color: #fff;
-  font-weight: 700;
-  box-shadow: #cecece 0px 4px 5px 0px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: #FA9F56;
-  }
-`
-
-export const H3 = styled.h3`
-  margin: 10px 0;
-  color: #494f53;
 `

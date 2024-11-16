@@ -30,15 +30,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Login function to authenticate a user
   const login = async (username: string, password: string) => {
-    try {
-      // Replace this with your API call or logic
-      const response = await fakeLogin(username, password);
-      const loggedInUser = response.user;
-      setUser(loggedInUser);
-      localStorage.setItem('user', JSON.stringify(loggedInUser)); // Store user in localStorage
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+    // Replace this with your API call or logic
+    const response = await fakeLogin(username, password);
+    const loggedInUser = response.user;
+    setUser(loggedInUser);
+    localStorage.setItem('user', JSON.stringify(loggedInUser)); // Store user in localStorage
   };
 
   // Logout function to clear user data
