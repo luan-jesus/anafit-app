@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
 
-import { Wrapper, UserTitle, Button, Input, Form } from './styles'
-import { useAuth } from '../../../context/auth-context';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
+import { useAuth } from '../../../context/auth-context';
+import Button from '../../../components/button';
+import TextInput from '../../../components/text-input';
+
+import { Wrapper, UserTitle, Form } from './styles'
 
 type RegisterFormType = {
   fullName: string;
@@ -38,9 +42,9 @@ const Register: React.FC = () => {
     <Wrapper>
       <UserTitle>Preencha seus dados</UserTitle>
       <Form onSubmit={handleSubmit(submit)}>
-        <Input type='text' placeholder='Nome completo' {...register('fullName', { required: true })} error={!!errors.fullName} />
-        <Input type='text' placeholder='E-mail' {...register('email', { required: true })} error={!!errors.email} />
-        <Input type='password' placeholder='Senha' {...register('password', { required: true })} error={!!errors.password} />
+        <TextInput type='text' placeholder='Nome completo' {...register('fullName', { required: true })} error={errors.fullName?.type} />
+        <TextInput type='text' placeholder='E-mail' {...register('email', { required: true })} error={errors.email?.type} />
+        <TextInput type='password' placeholder='Senha' {...register('password', { required: true })} error={errors.password?.type} />
         <Button>Registrar</Button>
       </Form>
     </Wrapper>

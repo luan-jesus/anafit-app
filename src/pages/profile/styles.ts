@@ -28,11 +28,12 @@ export const ReturnHomeButton = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #f7f7f7;
+    box-shadow: rgba(0,0,0,0.3) 2px 2px 5px 0px;
   }
 
   &:active {
-    cursor: pointer;
-    background-color: #f7f7f7;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.15) 2px 2px 5px 0px;
   }
 `
 

@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { Wrapper, UserTitle, Button, H3 } from './styles'
+import { Wrapper, UserTitle, H3 } from './styles'
 import { useAuth } from '../../../context/auth-context';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../../components/button';
 
 const Welcome: React.FC = () => {
   const navigate = useNavigate();
