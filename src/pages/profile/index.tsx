@@ -1,24 +1,34 @@
 import React from 'react'
 
 import { FaUser } from 'react-icons/fa'
+import { AiFillHome } from "react-icons/ai";
 
-import { BackgroundBall, ProfilePic, About } from './styles'
+import { BackgroundBall, ProfilePic, About, ReturnHomeButton } from './styles'
 import Container from '../../components/container';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-const Profile: React.FC = () => (
+const Profile: React.FC = () => {
+  const navigate = useNavigate();
+
+  return (
     <Container>
       <BackgroundBall />
       <ProfilePic>
         <FaUser color='#F88700' size={64} />
       </ProfilePic>
 
+      <ReturnHomeButton onClick={() => navigate("/")}>
+        <AiFillHome />
+      </ReturnHomeButton>
+
       <Outlet />
 
       <About>
-        Lorem Ipsum has been the standard dummy text ever since the 1500s.
+        Desenvolvido por <b>Luan Teixeira</b><br />
+        v1.0.0
       </About>
     </Container>
   )
+}
 
 export default Profile

@@ -9,6 +9,33 @@ export const BackgroundBall = styled.div`
   background-color: #F77800;
 `
 
+export const ReturnHomeButton = styled.button`
+  padding: 15px 30px;
+  justify-content: center;
+  border-radius: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  gap: 10px;
+  display: flex;
+  background-color: #fff;
+  box-shadow: rgba(0,0,0,0.15) 2px 2px 5px 0px;
+  color: #F77800;
+
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+
+  &:active {
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+`
+
 export const ProfilePic = styled.div`
   top: 100vw;
   background-color: #fff;
