@@ -40,7 +40,6 @@ const Login: React.FC = () => {
         render: 'Login realizado com sucesso',
         type: 'success',
         isLoading: false,
-        closeButton: true,
         closeOnClick: true,
         autoClose: 5000,
         draggable: true
@@ -53,7 +52,6 @@ const Login: React.FC = () => {
           render: 'Erro: ' + error.message,
           type: 'error',
           isLoading: false,
-          closeButton: true,
           closeOnClick: true,
           autoClose: 5000,
           draggable: true

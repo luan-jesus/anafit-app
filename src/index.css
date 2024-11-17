@@ -18,3 +18,11 @@ code {
   box-sizing: border-box;
   transition: all linear .1s;
 }
+
+:root {
+  --toastify-color-success: #66c769;
+  --toastify-color-error: #ff4c4c;
+
+  --toastify-toast-min-height: 70px;
+  --toastify-text-color-light: #494f53;
+}

@@ -14,7 +14,7 @@ export const Input = styled.input<InputProps>`
 
   opacity: ${props => props.disabled ? 0.5 : 1};
   
-  border: ${props => props.error ? '1px solid #a30000' : '1px solid #fff'};
+  border: ${props => props.error ? '1px solid #ff4c4c' : '1px solid #fff'};
 
   &:focus {
     outline: none;
@@ -32,7 +32,7 @@ export const Span = styled.span<InputProps>`
   margin-top: 2px;
   font-size: 12px;
   text-align: center;
-  color: #a30000;
+  color: #ff4c4c;
 
   opacity: ${props => props.error ? 1 : 0};
   transition: none;
