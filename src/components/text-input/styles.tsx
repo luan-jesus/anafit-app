@@ -12,7 +12,14 @@ export const Input = styled.input<InputProps>`
   border-radius: 50px;
   box-shadow: #cecece 0px 4px 5px 0px;
 
+  opacity: ${props => props.disabled ? 0.5 : 1};
+  
   border: ${props => props.error ? '1px solid #a30000' : '1px solid #fff'};
+
+  &:focus {
+    outline: none;
+    box-shadow: #a5a5a5 0px 4px 5px 0px;
+  }
 `;
 
 export const Wrapper = styled.div`

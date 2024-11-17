@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css'
 
 import App from './pages/app'
@@ -11,6 +12,7 @@ import { AuthProvider } from './context/auth-context'
 import Welcome from './pages/profile/welcome'
 import Login from './pages/profile/login'
 import Register from './pages/profile/register'
+import { ToastContainer } from 'react-toastify'
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <AuthProvider>
+    <ToastContainer />
     <RouterProvider router={router} />
   </AuthProvider>
 )

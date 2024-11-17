@@ -47,7 +47,7 @@ export const ProfilePic = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 1;
 `
 
 export const About = styled.p`

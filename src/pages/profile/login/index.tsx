@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -8,6 +8,7 @@ import TextInput from '../../../components/text-input';
 import Button from '../../../components/button';
 
 import { Wrapper, UserTitle, Form } from './styles'
+import { toast } from 'react-toastify';
 
 type LoginFormType = {
   email: string;
@@ -15,6 +16,8 @@ type LoginFormType = {
 }
 
 const Login: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
 
@@ -27,14 +30,37 @@ const Login: React.FC = () => {
   }, [isAuthenticated, navigate])
 
   async function submit(data: LoginFormType) {
+    const toastId = toast.loading("Carregando", {
+      position: 'top-center'
+    })
     try {
-      console.log(data)
+      setLoading(true)
       await login(data.email, data.password)
+      toast.update(toastId, {
+        render: 'Login realizado com sucesso',
+        type: 'success',
+        isLoading: false,
+        closeButton: true,
+        closeOnClick: true,
+        autoClose: 5000,
+        draggable: true
+      })
+
       navigate('/profile')
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message)
+        toast.update(toastId, {
+          render: 'Erro: ' + error.message,
+          type: 'error',
+          isLoading: false,
+          closeButton: true,
+          closeOnClick: true,
+          autoClose: 5000,
+          draggable: true
+        })
       }
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -42,9 +68,9 @@ const Login: React.FC = () => {
     <Wrapper>
       <UserTitle>Preencha suas credenciais</UserTitle>
       <Form onSubmit={handleSubmit(submit)}>
-        <TextInput type='text' placeholder='E-mail' {...register('email', { required: true })} error={errors.email?.type} />
-        <TextInput type='password' placeholder='Senha' {...register('password', { required: true })} error={errors.password?.type} />
-        <Button>Entrar</Button>
+        <TextInput disabled={loading} type='text' placeholder='E-mail' {...register('email', { required: true })} error={errors.email?.type} />
+        <TextInput disabled={loading} type='password' placeholder='Senha' {...register('password', { required: true })} error={errors.password?.type} />
+        <Button disabled={loading}>Entrar</Button>
       </Form>
     </Wrapper>
   )
