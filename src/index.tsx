@@ -10,6 +10,7 @@ import Profile from './pages/profile'
 import { AuthProvider } from './context/auth-context'
 import Welcome from './pages/profile/welcome'
 import Login from './pages/profile/login'
+import Register from './pages/profile/register'
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile/register",
-        element: <div>Register</div>
+        element: <Register />
       },
     ]
   }

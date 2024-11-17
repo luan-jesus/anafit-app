@@ -13,6 +13,11 @@ export const UserTitle = styled.h1`
   color: #494f53;
 `
 
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Button = styled.button`
   background-color: #F88700;
   display: flex;
@@ -37,11 +42,6 @@ export const H3 = styled.h3`
   margin: 10px 0;
   color: #494f53;
 `
-
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
 
 type InputProps = {
   error: boolean | undefined;

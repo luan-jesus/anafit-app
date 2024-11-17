@@ -5,16 +5,15 @@ import { useAuth } from '../../../context/auth-context';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-type LoginFormType = {
+type RegisterFormType = {
+  fullName: string;
   email: string;
-  password: string;
+  password: string
 }
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const navigate = useNavigate();
-  const { login, isAuthenticated } = useAuth();
-
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormType>()
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -22,9 +21,11 @@ const Login: React.FC = () => {
     }
   }, [isAuthenticated, navigate])
 
-  async function submit(data: LoginFormType) {
+  const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormType>()
+
+  async function submit(data: RegisterFormType) {
     try {
-      await login(data.email, data.password)
+      console.log(data);
       navigate('/profile')
     } catch (error) {
       if (error instanceof Error) {
@@ -35,14 +36,15 @@ const Login: React.FC = () => {
 
   return (
     <Wrapper>
-      <UserTitle>Preencha suas credenciais</UserTitle>
+      <UserTitle>Preencha seus dados</UserTitle>
       <Form onSubmit={handleSubmit(submit)}>
+        <Input type='text' placeholder='Nome completo' {...register('fullName', { required: true })} error={!!errors.fullName} />
         <Input type='text' placeholder='E-mail' {...register('email', { required: true })} error={!!errors.email} />
         <Input type='password' placeholder='Senha' {...register('password', { required: true })} error={!!errors.password} />
-        <Button>Entrar</Button>
+        <Button>Registrar</Button>
       </Form>
     </Wrapper>
   )
 }
 
-export default Login
+export default Register
