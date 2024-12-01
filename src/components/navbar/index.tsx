@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CiCircleList, CiDumbbell, CiGrid41 } from "react-icons/ci";
+import { CiCircleList, CiDumbbell, CiCalendarDate } from "react-icons/ci";
 
 import { NavItemLink, NavItemIcon, NavItemLabel, Wrapper,  } from './styles'
 
@@ -8,9 +8,9 @@ const Navbar: React.FC = () => (
   <Wrapper>
     <NavItemLink to={'/'}>
       <NavItemIcon>
-        <CiGrid41 />
+        <CiCalendarDate  />
       </NavItemIcon>
-      <NavItemLabel>Inicio</NavItemLabel>
+      <NavItemLabel>Calendário</NavItemLabel>
     </NavItemLink>
     <NavItemLink to={'workouts'}>
       <NavItemIcon>
