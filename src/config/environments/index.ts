@@ -1,3 +1,3 @@
 export const environments = {
-  base_url: `${window.location.protocol}//${window.location.hostname}:8080`
+  base_url: `https://anafit-service-bfabb784e919.herokuapp.com`
 };

@@ -7,13 +7,13 @@ import Button from '../../../components/button';
 
 const Welcome: React.FC = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, user } = useAuth();
 
   return (
     <Wrapper>
       {isAuthenticated ? (
         <>
-          <UserTitle>Luan de Jesus Teixeira</UserTitle>
+          <UserTitle>{user?.fullName || "Nome não encontrado"}</UserTitle>
           <Button onClick={logout}>Desconectar</Button>
         </>
       ) : (
