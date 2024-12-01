@@ -49,7 +49,7 @@ const Login: React.FC = () => {
     } catch (error) {
       if (error instanceof Error) {
         toast.update(toastId, {
-          render: 'Erro: ' + error.message,
+          render: error.message,
           type: 'error',
           isLoading: false,
           closeOnClick: true,

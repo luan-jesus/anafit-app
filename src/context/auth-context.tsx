@@ -1,48 +1,61 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
+import { noAuthApi } from '../config/axios'
 
-// Types for authentication state
 interface AuthContextType {
   user: User | null
   isAuthenticated: boolean
-  login: (username: string, password: string) => Promise<void>
+  login: (email: string, password: string) => Promise<void>
   logout: () => void
 }
 
-interface User {
-  id: string
-  username: string
+type User = {
+  fullName: string,
+  email: string,
+  token: string
 }
 
-// Create the AuthContext
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-// AuthProvider component to provide auth state to the app
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
-    // Check if user is already authenticated (e.g., from localStorage)
     const storedUser = localStorage.getItem('user')
     if (storedUser) {
       setUser(JSON.parse(storedUser))
     }
   }, [])
 
-  // Login function to authenticate a user
-  const login = async (username: string, password: string) => {
-    // Replace this with your API call or logic
-    const response = await fakeLogin(username, password)
-    const loggedInUser = response
-    setUser(loggedInUser)
-    localStorage.setItem('user', JSON.stringify(loggedInUser)) // Store user in localStorage
+  type AuthResponseType = {
+    fullName: string;
+    email: string;
+    token: string;
+    expiresIn: number;
   }
 
-  // Logout function to clear user data
+  const login = async (email: string, password: string) => {
+    const response = await noAuthApi.post<AuthResponseType>('/v1/auth/login', {
+      email: email,
+      password: password
+    })
+
+    const authData = response.data
+
+    const loggedUser: User = {
+      fullName: authData.fullName,
+      email: authData.email,
+      token: authData.token
+    }
+
+    setUser(loggedUser)
+    localStorage.setItem('user', JSON.stringify(loggedUser))
+  }
+
   const logout = () => {
     setUser(null)
-    localStorage.removeItem('user') // Clear user data from localStorage
+    localStorage.removeItem('user')
   }
 
   return (
@@ -54,7 +67,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   )
 }
 
-// Custom hook to use the AuthContext
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext)
   if (!context) {
@@ -62,19 +74,3 @@ export const useAuth = (): AuthContextType => {
   }
   return context
 }
-
-// Fake login function (replace with your own authentication API)
-const fakeLogin = async (username: string, password: string): Promise<User> =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Simulate an API call
-      if (username === 'user' && password === 'password') {
-        resolve({
-          id: '1',
-          username: 'user',
-        })
-      } else {
-        reject(new Error('Credenciais Inválidas'))
-      }
-    }, 2000)
-  })

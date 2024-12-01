@@ -15,25 +15,27 @@ const noAuthApi = axios.create({
   baseURL: environments.base_url,
 })
 
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.log(error)
-    if (error instanceof AxiosError) {
-      if (error.code === 'ERR_CANCELED') {
-        return
-      }
-      const errorMessage =
-        getMessageFromBody(error.response) ||
-        getMessageFromHttpStatus(error.response?.status) ||
-        'Ocorreu um erro inesperado'
+api.interceptors.response.use((response) => response, handleApiError)
+noAuthApi.interceptors.response.use((response) => response, handleApiError)
 
-      throw new Error(errorMessage)
+function handleApiError(error: any) {
+  console.log(error)
+  if (error instanceof AxiosError) {
+    if (error.code === 'ERR_CANCELED') {
+      return
     }
 
-    throw error
+    console.log('2da', error.response)
+    const errorMessage =
+      getMessageFromBody(error.response) ||
+      getMessageFromHttpStatus(error.response?.status) ||
+      'Ocorreu um erro inesperado'
+
+    throw new Error(errorMessage)
   }
-)
+
+  throw error
+}
 
 function getMessageFromBody(
   response: AxiosResponse<any, any> | undefined
