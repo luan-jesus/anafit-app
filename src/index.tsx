@@ -13,6 +13,7 @@ import Welcome from './pages/profile/welcome'
 import Login from './pages/profile/login'
 import Register from './pages/profile/register'
 import { ToastContainer } from 'react-toastify'
+import Calendar from './pages/Calendar';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>Dashboard</div>
+        element: <Calendar />
       },
       {
         path: "workouts",

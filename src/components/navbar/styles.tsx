@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Wrapper = styled.nav`
   width: 100%;
   height: 70px;
-  box-shadow: #cecece 0px -5px 10px 0px;;
+  box-shadow: #00000017 0px -5px 10px 0px;
   display: flex;
 `
 

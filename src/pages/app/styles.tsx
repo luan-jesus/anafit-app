@@ -9,8 +9,9 @@ export const Container = styled.div`
 
 export const PageContent = styled.div`
   flex: 1;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
