@@ -21,15 +21,15 @@ export const Label = styled.span`
 `;
 
 type DateProps = {
-  active?: boolean;
+  today: boolean;
 }
 
-export const Date = styled.div<DateProps>`
+export const StyledDate = styled.div<DateProps>`
   padding: 5px 10px;
   display: flex;
   align-items: flex-start;
-  background-color: ${props => props.active ? '#e9e9e9' : 'none'};
-  border-bottom: ${props => props.active ? '1px dashed #f77800' : 'none'};
+  background-color: ${props => props.today ? '#e9e9e9' : 'none'};
+  border-bottom: ${props => props.today ? '1px dashed #f77800' : 'none'};
 `;
 
 export const DateLabel = styled.div`
@@ -59,13 +59,32 @@ export const DateContent = styled.div`
 `;
 
 type DateItemProps = {
-  backgroundColor?: string;
+  color?: string;
 }
 
 export const DateItem = styled.div<DateItemProps>`
   flex: 1;
-  background-color: ${props => props.backgroundColor || '#a1a1a1'};
+  background-color: ${props => props.color || '#a1a1a1'};
   color: #fff;
   padding: 15px 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
 `;
+
+export const ConfirmBox = styled.div`
+  border: 2px solid #fff;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DateItemLabel = styled.span`
+  display: flex;
+  gap: 5px;
+`
