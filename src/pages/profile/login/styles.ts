@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,5 +21,4 @@ export const H3 = styled.h3`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-`;
-
+`

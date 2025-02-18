@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react"
-import { useRouteError } from "react-router-dom";
-import { Container } from "./styles";
+import React from 'react'
+import { useRouteError } from 'react-router-dom'
+import { Container } from './styles'
 
 const Error: React.FC = () => {
-  const error:any = useRouteError();
-  console.error(error);
+  const error: any = useRouteError()
+  console.error(error)
 
   return (
     <Container>

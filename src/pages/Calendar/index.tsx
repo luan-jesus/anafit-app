@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useEffect, useState } from 'react'
 
-import { IoIosFitness } from "react-icons/io";
-import { BiTask } from "react-icons/bi";
-import { TbRun } from "react-icons/tb";
-import { MdOutlineCheck } from "react-icons/md";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoIosFitness } from 'react-icons/io'
+import { BiTask } from 'react-icons/bi'
+import { TbRun } from 'react-icons/tb'
+import { MdOutlineCheck } from 'react-icons/md'
+import { IoCloseSharp } from 'react-icons/io5'
 
 import {
   Wrapper,
@@ -23,13 +23,13 @@ import {
 } from './styles'
 
 type DateType = {
-  date: Date;
+  date: Date
   items: DateItem[]
 }
 
 type DateItem = {
-  type: 'workout' | 'task' | 'cardio',
-  name: string,
+  type: 'workout' | 'task' | 'cardio'
+  name: string
   status: 'PENDING' | 'NOT_DONE' | 'DONE'
 }
 
@@ -39,14 +39,22 @@ const Calendar: React.FC = () => {
   const createDates = useCallback(() => {
     const datesToReturn: DateType[] = []
     const currDate = new Date()
-    const firstDate = new Date(currDate.getFullYear(), currDate.getMonth() - 1, 1)
-    const lastDate = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0)
+    const firstDate = new Date(
+      currDate.getFullYear(),
+      currDate.getMonth() - 1,
+      1
+    )
+    const lastDate = new Date(
+      currDate.getFullYear(),
+      currDate.getMonth() + 1,
+      0
+    )
     lastDate.setMonth(lastDate.getMonth() + 1)
 
     while (firstDate.getTime() <= lastDate.getTime()) {
       const dateItem: DateType = {
         date: new Date(firstDate),
-        items: []
+        items: [],
       }
 
       let status: 'PENDING' | 'NOT_DONE' | 'DONE' = getRandomStatus()
@@ -59,7 +67,7 @@ const Calendar: React.FC = () => {
         dateItem.items.push({
           type: 'task',
           name: 'Creatina',
-          status: status
+          status: status,
         })
       }
 
@@ -67,7 +75,7 @@ const Calendar: React.FC = () => {
         dateItem.items.push({
           type: 'workout',
           name: 'Treino de peito',
-          status: status
+          status: status,
         })
       }
 
@@ -75,7 +83,7 @@ const Calendar: React.FC = () => {
         dateItem.items.push({
           type: 'cardio',
           name: 'Bicicleta ergométrica',
-          status: status
+          status: status,
         })
       }
 
@@ -92,14 +100,27 @@ const Calendar: React.FC = () => {
   }, [createDates])
 
   useEffect(() => {
-    const element = document.getElementById('today-date-item');
+    const element = document.getElementById('today-date-item')
     if (element) {
-      element.scrollIntoView({ behavior: 'auto', block: 'start' });
+      element.scrollIntoView({ behavior: 'auto', block: 'start' })
     }
   }, [dates])
 
   function getMonthLabel(month: number): string {
-    const monthLabel = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    const monthLabel = [
+      'Janeiro',
+      'Fevereiro',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+      'Julho',
+      'Agosto',
+      'Setembro',
+      'Outubro',
+      'Novembro',
+      'Dezembro',
+    ]
 
     return monthLabel[month]
   }
@@ -115,9 +136,9 @@ const Calendar: React.FC = () => {
       // 'PENDING': '#a1a1a1',
       // 'DONE': '#5d9fcd',
       // 'NOT_DONE': '#5d9fcd',
-      'PENDING': '#a1a1a1',
-      'DONE': '#66c769',
-      'NOT_DONE': '#ff4c4c',
+      PENDING: '#a1a1a1',
+      DONE: '#66c769',
+      NOT_DONE: '#ff4c4c',
     }
 
     return colorStatus[status]
@@ -138,41 +159,49 @@ const Calendar: React.FC = () => {
   }
 
   function dateIsToday(date: Date): boolean {
-    return date.getDate() === new Date().getDate() && date.getMonth() === new Date().getMonth()
+    return (
+      date.getDate() === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    )
   }
 
   return (
-  <Wrapper>
-    {dates.map((d, index, _) => (
-      <div key={index} id={dateIsToday(d.date) ? 'today-date-item' : 'item-date-' + index}>
-        {(d.date.getDate() === 1 || index === 0) && <MonthLabel>{getMonthLabel(d.date.getMonth())}</MonthLabel>}
-        <StyledDate today={dateIsToday(d.date)}>
-          <DateLabel>
-            <DateLabelWeek>{getWeekLabel(d.date.getDay())}.</DateLabelWeek>
-            <DateLabelDate>{d.date.getDate()}</DateLabelDate>
-          </DateLabel>
-          <DateContent>
-            {d.items.length === 0 && <Label>Nenhum registro</Label>}
-            {d.items.map((item, index, _) => (
-              <DateItem key={index} color={getColorFromStatus(item.status)}>
-                <DateItemLabel>
-                {item.type === 'task' && <BiTask size={23} />}
-                {item.type === 'workout' && <IoIosFitness size={23} />}
-                {item.type === 'cardio' && <TbRun size={23} />}
-                  {item.name}
-                </DateItemLabel>
-                <ConfirmBox>
-                  {item.status === 'DONE' && <MdOutlineCheck size={24} />}
-                  {item.status === 'NOT_DONE' && <IoCloseSharp size={24} />}
-                </ConfirmBox>
-              </DateItem>
-            ))}
-          </DateContent>
-        </StyledDate>
-      </div>
-    ))}
-  </Wrapper>
-)
+    <Wrapper>
+      {dates.map((d, index, _) => (
+        <div
+          key={index}
+          id={dateIsToday(d.date) ? 'today-date-item' : 'item-date-' + index}
+        >
+          {(d.date.getDate() === 1 || index === 0) && (
+            <MonthLabel>{getMonthLabel(d.date.getMonth())}</MonthLabel>
+          )}
+          <StyledDate today={dateIsToday(d.date)}>
+            <DateLabel>
+              <DateLabelWeek>{getWeekLabel(d.date.getDay())}.</DateLabelWeek>
+              <DateLabelDate>{d.date.getDate()}</DateLabelDate>
+            </DateLabel>
+            <DateContent>
+              {d.items.length === 0 && <Label>Nenhum registro</Label>}
+              {d.items.map((item, index, _) => (
+                <DateItem key={index} color={getColorFromStatus(item.status)}>
+                  <DateItemLabel>
+                    {item.type === 'task' && <BiTask size={23} />}
+                    {item.type === 'workout' && <IoIosFitness size={23} />}
+                    {item.type === 'cardio' && <TbRun size={23} />}
+                    {item.name}
+                  </DateItemLabel>
+                  <ConfirmBox>
+                    {item.status === 'DONE' && <MdOutlineCheck size={24} />}
+                    {item.status === 'NOT_DONE' && <IoCloseSharp size={24} />}
+                  </ConfirmBox>
+                </DateItem>
+              ))}
+            </DateContent>
+          </StyledDate>
+        </div>
+      ))}
+    </Wrapper>
+  )
 }
 
 export default Calendar

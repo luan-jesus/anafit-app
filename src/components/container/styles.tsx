@@ -8,4 +8,4 @@ export const Wrapper = styled.div`
   position: relative;
   align-items: center;
   overflow: hidden;
-`;
+`

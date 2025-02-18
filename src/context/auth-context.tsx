@@ -9,8 +9,8 @@ interface AuthContextType {
 }
 
 type User = {
-  fullName: string,
-  email: string,
+  fullName: string
+  email: string
   token: string
 }
 
@@ -29,16 +29,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [])
 
   type AuthResponseType = {
-    fullName: string;
-    email: string;
-    token: string;
-    expiresIn: number;
+    fullName: string
+    email: string
+    token: string
+    expiresIn: number
   }
 
   const login = async (email: string, password: string) => {
     const response = await noAuthApi.post<AuthResponseType>('/v1/auth/login', {
       email: email,
-      password: password
+      password: password,
     })
 
     const authData = response.data
@@ -46,7 +46,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     const loggedUser: User = {
       fullName: authData.fullName,
       email: authData.email,
-      token: authData.token
+      token: authData.token,
     }
 
     setUser(loggedUser)

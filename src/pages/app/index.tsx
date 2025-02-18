@@ -1,11 +1,11 @@
 import React from 'react'
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 
-import Header from '../../components/header';
+import Header from '../../components/header'
 
 import { Container, PageContent } from './styles'
-import Navbar from '../../components/navbar';
-import AddItem from '../../components/add-item';
+import Navbar from '../../components/navbar'
+import AddItem from '../../components/add-item'
 
 const App: React.FC = () => (
   <Container>

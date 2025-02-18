@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { CiCircleList, CiDumbbell, CiCalendarDate } from "react-icons/ci";
+import { CiCircleList, CiDumbbell, CiCalendarDate } from 'react-icons/ci'
 
-import { NavItemLink, NavItemIcon, NavItemLabel, Wrapper,  } from './styles'
+import { NavItemLink, NavItemIcon, NavItemLabel, Wrapper } from './styles'
 
 const Navbar: React.FC = () => (
   <Wrapper>
     <NavItemLink to={'/'}>
       <NavItemIcon>
-        <CiCalendarDate  />
+        <CiCalendarDate />
       </NavItemIcon>
       <NavItemLabel>Calendário</NavItemLabel>
     </NavItemLink>

@@ -7,8 +7,8 @@ import getMessageFromHttpStatus from './axios-utils'
 const api = axios.create({
   baseURL: environments.base_url,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
 })
 
 const noAuthApi = axios.create({

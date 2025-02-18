@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
-  background-color: #FFF;
+  background-color: #fff;
   width: 100%;
   height: 70px;
   box-shadow: #e4e4e4 0px 3px 7px 0px;
   display: flex;
   align-items: center;
-`;
+`
 
 export const LogoImg = styled.img`
   height: 60px;
@@ -18,7 +18,7 @@ export const LogoImg = styled.img`
 export const PageTitle = styled.h3`
   flex: 1;
   margin: 0 10px;
-  color: #F77800;
+  color: #f77800;
   text-align: center;
 `
 
@@ -32,7 +32,7 @@ export const UserButton = styled(Link)`
   color: #fff;
   border: none;
 
-  background-color: #F77800;
+  background-color: #f77800;
 
   &:hover {
     background-color: #e9e9e9;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 type InputProps = {
-  error: boolean;
+  error: boolean
 }
 
 export const Input = styled.input<InputProps>`
@@ -12,15 +12,15 @@ export const Input = styled.input<InputProps>`
   border-radius: 50px;
   box-shadow: #cecece 0px 4px 5px 0px;
 
-  opacity: ${props => props.disabled ? 0.5 : 1};
-  
-  border: ${props => props.error ? '1px solid #ff4c4c' : '1px solid #fff'};
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+
+  border: ${(props) => (props.error ? '1px solid #ff4c4c' : '1px solid #fff')};
 
   &:focus {
     outline: none;
     box-shadow: #a5a5a5 0px 4px 5px 0px;
   }
-`;
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -34,6 +34,6 @@ export const Span = styled.span<InputProps>`
   text-align: center;
   color: #ff4c4c;
 
-  opacity: ${props => props.error ? 1 : 0};
+  opacity: ${(props) => (props.error ? 1 : 0)};
   transition: none;
 `

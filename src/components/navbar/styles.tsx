@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.nav`
   width: 100%;
@@ -9,7 +9,7 @@ export const Wrapper = styled.nav`
 `
 
 export const NavItemLink = styled(Link)`
-  background-color: #FA9F56;
+  background-color: #fa9f56;
   flex: 1;
   align-items: center;
   display: flex;
@@ -21,11 +21,11 @@ export const NavItemLink = styled(Link)`
   font-weight: 500;
 
   &:hover {
-    background-color: #F77800;
+    background-color: #f77800;
   }
 
   &:active {
-    background-color: #F77800;
+    background-color: #f77800;
   }
 `
 export const NavItemLabel = styled.span`

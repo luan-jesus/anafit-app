@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdAdd } from "react-icons/md";
+import { MdAdd } from 'react-icons/md'
 
 import { Wrapper } from './styles'
 

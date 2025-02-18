@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const BackgroundBall = styled.div`
   width: 500px;
@@ -6,7 +6,7 @@ export const BackgroundBall = styled.div`
   border-radius: 50%;
   top: -225px;
   position: absolute;
-  background-color: #F77800;
+  background-color: #f77800;
 `
 
 export const ReturnHomeButton = styled.button`
@@ -20,20 +20,20 @@ export const ReturnHomeButton = styled.button`
   gap: 10px;
   display: flex;
   background-color: #fff;
-  box-shadow: rgba(0,0,0,0.15) 2px 2px 5px 0px;
-  color: #F77800;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
+  color: #f77800;
 
   border: none;
 
   &:hover {
     cursor: pointer;
     background-color: #f7f7f7;
-    box-shadow: rgba(0,0,0,0.3) 2px 2px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
   }
 
   &:active {
     background-color: #fff;
-    box-shadow: rgba(0,0,0,0.15) 2px 2px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
   }
 `
 
@@ -54,7 +54,7 @@ export const About = styled.p`
   display: flex;
   margin: 10px 10px 20px;
   flex: 1;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: flex-end;
   color: #494f53;
   text-align: center;
