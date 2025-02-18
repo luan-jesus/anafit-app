@@ -12,8 +12,10 @@ import { AuthProvider } from './context/auth-context'
 import Welcome from './pages/profile/welcome'
 import Login from './pages/profile/login'
 import Register from './pages/profile/register'
-import Calendar from './pages/Calendar'
+import Calendar from './pages/calendar'
 import { ToastProvider } from './context/toast-context'
+import Workout from './pages/workout'
+import Exercises from './pages/exercises'
 
 const router = createBrowserRouter([
   {
@@ -27,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'workouts',
-        element: <div>Workout</div>,
+        element: <Workout />,
       },
       {
         path: 'exercises',
-        element: <div>Exercise</div>,
+        element: <Exercises />,
       },
     ],
   },
